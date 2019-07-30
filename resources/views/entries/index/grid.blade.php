@@ -6,21 +6,21 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th scope="col">Code</th>
-            <th scope="col">Description</th>
+            <th scope="col">Date</th>
+            <th scope="col">Account</th>
+            <th scope="col">Value</th>
             <th scope="col">Currency</th>
-            <th scope="col">Balance</th>
         </tr>
         </thead>
         <tbody>
-        @foreach ($accounts as $account)
+        @foreach ($entries as $entry)
             <tr>
-                <td>{{ $account->slug }}</td>
-                <td>{{ $account->description }}</td>
-                <td>{{ $account->currency }}</td>
-                <td class="{{ $account->current_balance < 0 ? 'text-danger' : 'text-success' }}">
-                    {{ $account->current_balance }}
+                <td>{{ $entry->time->format('d/m/Y') }}</td>
+                <td>{{ $entry->account->slug }}</td>
+                <td class="{{ $entry->value < 0 ? 'text-danger' : 'text-success' }}">
+                    {{ $entry->value }}
                 </td>
+                <td>{{ $entry->account->currency }}</td>
             </tr>
         @endforeach
         </tbody>

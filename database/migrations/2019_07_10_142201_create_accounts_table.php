@@ -18,6 +18,7 @@ class CreateAccountsTable extends Migration
             $table->bigInteger('user_id');
             $table->string('slug')->unique();
             $table->string('description');
+            $table->string('currency');
             $table->decimal('initial_balance');
             $table->decimal('balance')->nullable();
             $table->timestamp('balance_time')->nullable();

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Entry
  * @package App
+ * @mixin \Eloquent
  * @property int id
  * @property int user_id
  * @property int account_id
@@ -21,10 +22,14 @@ use Illuminate\Database\Eloquent\Model;
 class Entry extends Model
 {
 
+    protected $fillable = ['user_id', 'account_id', 'description', 'value', 'time'];
+
+    protected $dates = ['time'];
+
     protected static function boot()
     {
         parent::boot();
-        static::addGlobalScope(CurrentUserScope::class);
+        static::addGlobalScope(new CurrentUserScope());
     }
 
     public function account()

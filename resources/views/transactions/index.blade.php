@@ -1,5 +1,5 @@
 @php
-    /** @var \App\Account[] $accounts */
+    /** @var \App\Transaction[] $transactions */
 @endphp
 
 @extends('layouts.app')
@@ -10,7 +10,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                    <li class="breadcrumb-item active">Accounts</li>
+                    <li class="breadcrumb-item active">Transactions and Payments</li>
                 </ol>
             </nav>
         </div>
@@ -19,8 +19,8 @@
 
             <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
                 <div class="btn-group" role="group">
-                        <a href="{{ route('accounts.create') }}" class="btn btn-secondary">
-                            <i class="fas fa-plus"></i> Add Account
+                        <a href="{{ route('transactions.create') }}" class="btn btn-secondary">
+                            <i class="fas fa-plus"></i> Add Transaction
                         </a>
                 </div>
             </div>
@@ -28,6 +28,6 @@
 
         </div>
         <br/>
-        @include('accounts.index.grid', compact('accounts'))
+        @include('transactions.index.grid', compact('transactions'))
     </div>
 @endsection
